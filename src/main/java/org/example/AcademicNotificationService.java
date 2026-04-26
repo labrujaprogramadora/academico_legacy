@@ -1,9 +1,9 @@
 package org.example;
 
-public class AcademiNotificationService {
+public class AcademicNotificationService {
     private final EmailClient emailClient = new EmailClient();
 
-    public void sendWelcomeMessage(AcademiProfileData data){
+    public void sendWelcomeMessage(AcademicProfileData data){
         emailClient.send(
                 data.email,
                 "Welcome to the academic platform",

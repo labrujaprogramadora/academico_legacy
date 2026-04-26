@@ -1,9 +1,9 @@
 package org.example;
 
-public class AcademiProfileRepository {
+public class AcademicProfileRepository {
     private final DatabaseClient databaseClient = new DatabaseClient();
 
-    public void save(AcademiProfileData data){
+    public void save(AcademicProfileData data){
         String dataToSave =
                 "role=" + data.role +
                 ", fullName=" + data.fullName +

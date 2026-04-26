@@ -1,6 +1,6 @@
 package org.example;
 
-public class AcademiProfileData {
+public class AcademicProfileData {
     public String role;
     public String fullName;
     public String documentNumber;
@@ -12,7 +12,7 @@ public class AcademiProfileData {
     public String schedule;
     public double performanceScore;
 
-    public AcademiProfileData(
+    public AcademicProfileData(
             String role,
             String fullName,
             String documentNumber,

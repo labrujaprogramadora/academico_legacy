@@ -7,7 +7,7 @@ public class Main {
 
         AcademicProfileService service = new AcademicProfileService();
 
-        AcademiProfileData student = new AcademiProfileData(
+        AcademicProfileData student = new AcademicProfileData(
             "student",
             "Laura Perez",
             "CC-123456",
@@ -20,7 +20,7 @@ public class Main {
             4.9
         );
 
-        AcademiProfileData teacher = new AcademiProfileData(
+        AcademicProfileData teacher = new AcademicProfileData(
             "teacher",
             "Carlos Gomez",
             "CC-789012",

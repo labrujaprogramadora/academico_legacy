@@ -1,7 +1,7 @@
 package org.example;
 
-public class AcademiProfileValidator {
-    public boolean validate(AcademiProfileData data) {
+public class AcademicProfileValidator {
+    public boolean validate(AcademicProfileData data) {
         if (data.role == null || data.role.isEmpty()) {
             System.out.println("Role is required");
             return false;
