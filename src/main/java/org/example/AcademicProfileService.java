@@ -5,13 +5,13 @@ public class AcademicProfileService {
     private final AcademiProfileValidator validator = new AcademiProfileValidator();
     private final AcademiProfileRepository repository = new AcademiProfileRepository();
     private final EmailClient emailClient = new EmailClient();
+    private final AcademiNotificationService notificationService = new AcademiNotificationService();
 
     public void registerProfile(AcademiProfileData data) {
         // Validación de datos
         if(!validator.validate(data)){
             return;
         }
-
 
         // Asignación de atributos por rol
         if (data.role.equals("student")) {
@@ -22,10 +22,6 @@ public class AcademicProfileService {
             System.out.println("Enrolling student in course: " + data.courseName);
             System.out.println("Assigning schedule: " + data.schedule);
 
-            if (data.performanceScore >= 4.8) {
-                System.out.println("Benefit applied: free academic day for high performance student");
-            }
-
         } else if (data.role.equals("teacher")) {
 
 
@@ -34,9 +30,6 @@ public class AcademicProfileService {
             System.out.println("Assigning teacher to course: " + data.courseName);
             System.out.println("Assigning schedule: " + data.schedule);
 
-            if (data.performanceScore >= 4.5) {
-                System.out.println("Benefit applied: public recognition for teacher performance");
-            }
 
         } else {
             System.out.println("Unsupported academic role");
@@ -47,10 +40,7 @@ public class AcademicProfileService {
         repository.save(data);
 
         // Enviar notificación
-        emailClient.send(
-                data.email,
-                "Welcome to the academic platform",
-                "Hello " + data.fullName + ", your academic profile was registered successfully."
-        );
+        notificationService.sendWelcomeMessage(data);
+
     }
 }
