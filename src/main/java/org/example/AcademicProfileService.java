@@ -8,7 +8,8 @@ public class AcademicProfileService {
 
     private final AcademicProfileProcessor[] processors ={
             new StudentProfileProcessor(),
-            new TeacherProfileProcessor()
+            new TeacherProfileProcessor(),
+            new CoordinatorProfileProcessor(),
     };
 
     public void registerProfile(AcademicProfileData data) {
@@ -30,6 +31,13 @@ public class AcademicProfileService {
             return;
         }
 
+        ProcessingResult result = selectedProcessor.process(data);
+
+        if (!result.success) {
+            System.out.println(result.message);
+            return;
+        }
+
         selectedProcessor.process(data);
         
 
@@ -41,3 +49,17 @@ public class AcademicProfileService {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

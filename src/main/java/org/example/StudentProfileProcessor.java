@@ -7,10 +7,12 @@ public class StudentProfileProcessor implements AcademicProfileProcessor{
     }
 
     @Override
-    public void process(AcademicProfileData data) {
+    public ProcessingResult process(AcademicProfileData data) {
         System.out.println("Creating student profile for: " + data.fullName);
         System.out.println("Assigning grade: " + data.grade);
         System.out.println("Enrolling student in course: " + data.courseName);
         System.out.println("Assigning schedule: " + data.schedule);
+
+        return new ProcessingResult(true, "Student profile created successfully");
     }
 }

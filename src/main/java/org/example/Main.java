@@ -15,7 +15,7 @@ public class Main {
             16,
             "10th Grade",
             null,
-            "Programming Basics",
+            null,
             "Morning",
             4.9
         );
@@ -33,10 +33,26 @@ public class Main {
             4.7
         );
 
+        AcademicProfileData coordinator = new AcademicProfileData(
+                "coordinator",
+                "Marta Lopez",
+                "CC-999999",
+                "marta.lopez@school.com",
+                45,
+                null,
+                null,
+                "Software Engineering",
+                null,
+                4.6
+        );
+
         System.out.println("\nRegister Student");
         service.registerProfile(student);
 
         System.out.println("\nRegister Teacher");
         service.registerProfile(teacher);
+
+        System.out.println("\nRegister Coordinator");
+        service.registerProfile(coordinator);
     }
 }
