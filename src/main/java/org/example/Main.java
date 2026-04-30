@@ -15,7 +15,7 @@ public class Main {
             16,
             "10th Grade",
             null,
-            null,
+            "Software Engineering",
             "Morning",
             4.9
         );
@@ -49,10 +49,8 @@ public class Main {
         System.out.println("\nRegister Student");
         service.registerProfile(student);
 
-        System.out.println("\nRegister Teacher");
-        service.registerProfile(teacher);
+        StudentAcademicOperations studentOperations = new StudentAcademicOperations();
+        studentOperations.enrollStudentInCourse(student);
 
-        System.out.println("\nRegister Coordinator");
-        service.registerProfile(coordinator);
     }
 }
