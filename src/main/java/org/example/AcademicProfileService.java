@@ -2,15 +2,22 @@ package org.example;
 
 public class AcademicProfileService {
 
-    private final AcademicProfileValidator validator = new AcademicProfileValidator();
-    private final AcademicProfileRepository repository = new AcademicProfileRepository();
-    private final AcademicNotificationService notificationService = new AcademicNotificationService();
+    private AcademicProfileValidator validator;
+    private AcademicProfileRepository repository;
+    private AcademicNotificationService notificationService;
+    private AcademicProfileProcessor[] processors;
 
-    private final AcademicProfileProcessor[] processors ={
-            new StudentProfileProcessor(),
-            new TeacherProfileProcessor(),
-            new CoordinatorProfileProcessor(),
-    };
+    public AcademicProfileService(
+            AcademicProfileValidator validator,
+            AcademicProfileRepository repository,
+            AcademicNotificationService notificationService,
+            AcademicProfileProcessor[] processors
+    ) {
+        this.validator = validator;
+        this.repository = repository;
+        this.notificationService = notificationService;
+        this.processors = processors;
+    }
 
     public void registerProfile(AcademicProfileData data) {
         // Validación de datos

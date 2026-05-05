@@ -4,8 +4,22 @@ public class Main {
 
     public static void main(String[] args) {
 
+        AcademicProfileValidator validator = new AcademicProfileValidator();
+        AcademicProfileRepository repository = new AcademicProfileRepository();
+        AcademicNotificationService notificationService = new AcademicNotificationService();
+        AcademicProfileProcessor[] processors = new AcademicProfileProcessor[]{
+            new StudentProfileProcessor(),
+            new TeacherProfileProcessor(),
+            new CoordinatorProfileProcessor()
+        };
 
-        AcademicProfileService service = new AcademicProfileService();
+
+        AcademicProfileService service = new AcademicProfileService(
+                validator,
+                repository,
+                notificationService,
+                processors
+        );
 
         AcademicProfileData student = new AcademicProfileData(
             "student",
